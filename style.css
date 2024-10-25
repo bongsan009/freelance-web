@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    text-decoration: none;
+    list-style: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white-clr);
+    font-family: "Rubik", serif;
+}
+
+img {
+    width: 100%;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: var(--white-clr);
+}
+
+:root {
+    --primary-color: #009688;
+    /* A vibrant green similar to the logo */
+    --secondary-color: #F5F5F5;
+    /* A light gray for backgrounds */
+    --text-color: #333333;
+    /* A dark gray for text */
+    --accent-color: #ff9800;
+    /* A bright orange for accents */
+    --link-color: #007bff;
+    /* A blue for links */
+    --white-clr: #fff;
+    --text-clr-hover: #6d6d6d;
+}
+
+
+/* Custome Cursor */
+
+.outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: all .2s linear;
+}
+
+.outline,
+.dot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2000;
+}
+
+
+/* Reusable Components */
+
+.title {
+    font-size: 5rem;
+    margin: 3rem 0;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    color: var(--white-clr);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+
+/* Header Starts */
+
+.header {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: var(--white-clr);
+    z-index: 1999;
+}
+
+.header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header .logo {
+    width: 250px;
+    height: auto;
+}
+
+.header .flex .list {
+    display: flex;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+}
+
+.header .list a {
+    color: var(--text-color);
+}
+
+.header .fa-bars {
+    display: none;
+}
+
+
+/* Hero Starts */
+
+.hero {
+    width: 100%;
+    min-height: calc(100vh - 73.2px);
+    margin-top: 73.2px;
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+}
+
+.hero h1,
+span {
+    font-size: 5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.hero span {
+    background-color: var(--primary-color);
+    color: var(--white-clr);
+    border-radius: .5rem;
+}
+
+.hero .flex {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.hero .flex .contents {
+    flex: 1 1 40rem;
+    /* background-color: orange; */
+}
+
+.hero .flex .image-side {
+    flex: 1 1 60rem;
+    /* background-color: orange; */
+}
+
+i {
+    color: var(--text-color);
+}
+
+.hero .social-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: orange; */
+    /* position: fixed; */
+    gap: 1.5rem;
+}
+
+.hero .social-list li:last-child {
+    /* background-color: red; */
+    writing-mode: vertical-lr;
+    /* text-orientation: upright; */
+    transform: rotate(180deg);
+}
+
+.header .flex .list li:hover,
+.header .flex .list li a:hover {
+    text-decoration: underline;
+    color: var(--text-clr-hover);
+}
+
+
+/* Recent Projects Section Starts */
+
+.projects {
+    background-color: var(--secondary-color);
+    text-align: start;
+    padding: 5rem;
+}
+
+.projects .flex img {
+    border-radius: .5rem;
+}
+
+.projects .list {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem;
+}
+
+.projects .list li::after {
+    content: " / ";
+}
+
+.projects .list li:last-child::after {
+    display: none;
+}
+
+.projects .more {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+
+/* Services */
+
+.service {
+    /* background-color: orange; */
+    margin-top: 5rem;
+}
+
+.service .grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+}
+
+.service div {
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+.service .grid .card {
+    padding: 5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.service .grid .card:hover {
+    background-color: var(--secondary-color);
+}
+
+.service .grid h3 {
+    margin: 2rem 0;
+}
+
+.service .grid p {
+    line-height: 2;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    .header {
+        align-items: center;
+    }
+    .header .fa-bars {
+        display: block;
+    }
+    .header .logo {
+        display: none;
+    }
+    .header .logo .header {
+        padding: 2rem 0;
+    }
+    .hero .social-list {
+        display: none;
+    }
+    section {
+        max-width: 1000px;
+    }
+    .hero .flex .contents {
+        text-align: center;
+    }
+    .header .flex .list li {
+        margin-top: 3rem;
+    }
+    .header .flex .list {
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        text-align: center;
+        height: 100vh;
+        background-color: var(--white-clr);
+        border-bottom: 1px solid var(--secondary-color);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .header .flex .list.active {
+        /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        display: block;
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 55%;
+    }
+    .header {
+        padding: 2rem;
+    }
+    .header {
+        /* background-color: orange; */
+    }
+    .hero {
+        margin-top: 64.6px;
+        /* background-color: dodgerblue; */
+    }
+}
